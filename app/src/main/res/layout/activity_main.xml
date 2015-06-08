@@ -16,4 +16,18 @@
         android:layout_height="wrap_content"
         android:text="@string/btn_string_request" />
 
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btn_json_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_json_request" />
+
+    <Button
+        android:layout_marginTop="20dp"
+        android:id="@+id/btn_image_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_image_request" />
+
 </LinearLayout>

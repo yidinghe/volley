@@ -13,7 +13,7 @@ import com.blueskyhe.volleydemo.util.VolleyUtil;
 
 public class MainActivity extends ActionBarActivity implements View.OnClickListener {
 
-    private Button mBtnStringRequest;
+    private Button mBtnStringRequest, mBtnJsonRequest;
 
     private VolleyUtil mVolleyUtil;
 
@@ -33,8 +33,12 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
 
 
     private void initViews() {
+
         mBtnStringRequest = (Button) findViewById(R.id.btn_string_request);
         mBtnStringRequest.setOnClickListener(this);
+
+        mBtnJsonRequest = (Button) findViewById(R.id.btn_json_request);
+        mBtnJsonRequest.setOnClickListener(this);
     }
 
 
@@ -64,7 +68,13 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         if (v == mBtnStringRequest) {
             onStringRequestClicked();
+        } else if (v == mBtnJsonRequest) {
+            onJsonRequestClicked();
         }
+    }
+
+    private void onJsonRequestClicked() {
+        mVolleyUtil.volleyJsonRequest("http://m.weather.com.cn/data/101010100.html");
     }
 
     private void onStringRequestClicked() {
