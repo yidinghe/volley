@@ -4,16 +4,37 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.blueskyhe.volleydemo.R;
+import com.blueskyhe.volleydemo.util.VolleyUtil;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements View.OnClickListener {
+
+    private Button mBtnStringRequest;
+
+    private VolleyUtil mVolleyUtil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        initViews();
+
+        initVolley();
+    }
+
+    private void initVolley() {
+        mVolleyUtil = new VolleyUtil(this);
+    }
+
+
+    private void initViews() {
+        mBtnStringRequest = (Button) findViewById(R.id.btn_string_request);
+        mBtnStringRequest.setOnClickListener(this);
     }
 
 
@@ -37,5 +58,16 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mBtnStringRequest) {
+            onStringRequestClicked();
+        }
+    }
+
+    private void onStringRequestClicked() {
+        mVolleyUtil.volleyStringRequest("http://www.baidu.com");
     }
 }

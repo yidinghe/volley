@@ -15,6 +15,8 @@ import com.android.volley.toolbox.Volley;
  */
 public class VolleyUtil {
 
+    private static final String TAG = "VOLLEY_TAG";
+
     private RequestQueue requestQueue;
 
     private Context context;
@@ -26,19 +28,20 @@ public class VolleyUtil {
 
     public void volleyStringRequest(String url) {
 
-        final String response;
-
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String s) {
-                Log.d("TAG", s);
+                Log.d(TAG, s);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                Log.e("TAG", volleyError.getMessage(), volleyError);
+                Log.e(TAG, volleyError.getMessage(), volleyError);
             }
         });
+
+
+        requestQueue.add(stringRequest);
     }
 
 }
