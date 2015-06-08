@@ -10,5 +10,5 @@ public class VolleyUtil {
     public VolleyUtil(Context context) {
 
     }
-    
+
 }
